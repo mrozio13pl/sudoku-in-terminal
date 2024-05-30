@@ -1,0 +1,32 @@
+{
+    "extends": "@tsconfig/node18/tsconfig.json",
+    "compilerOptions": {
+        "rootDir": "src",
+        "baseUrl": "src",
+        "outDir": "dist",
+        "target": "esnext",
+        "module": "esnext",
+        "moduleResolution": "bundler",
+        "isolatedModules": false,
+        "esModuleInterop": true,
+        "emitDeclarationOnly": false,
+        "strict": true,
+        "strictPropertyInitialization": false,
+        "resolveJsonModule": true,
+        "jsx": "react-jsx",
+        "paths": {
+            "~/hooks/*": ["./hooks/*"],
+            "~/helpers/*": ["./helpers/*"],
+            "~/handlers/*": ["./handlers/*"],
+            "~/core/*": ["./core/*"],
+            "~/components/*": ["./components/*"],
+            "~/index": ["./index.js"],
+            "~/constants": ["./constants.js"],
+            "~/app": ["./app.js"],
+            "~/utils": ["./utils.js"],
+            "~/types": ["./types.d.ts"],
+            "~/package.json": ["../package.json"]
+        }
+    },
+    "include": ["src"]
+}
