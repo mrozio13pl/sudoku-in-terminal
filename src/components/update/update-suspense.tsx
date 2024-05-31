@@ -1,18 +1,26 @@
 import React from 'react';
 import { Text } from 'ink';
 import Spinner from 'ink-spinner';
+import isUnicodeSupported from 'is-unicode-supported';
 import { randomArrEl } from '~/utils';
 import type { SpinnerName } from 'cli-spinners';
 
 /** Some of the more good-looking spinners. */
-const spinners = [
-    'arc',
+const spinners: SpinnerName[] = [
     'balloon',
     'bouncingBar',
-    'dots10',
-    'squareCorners',
-    'toggle'
-] satisfies SpinnerName[];
+    'bouncingBall'
+];
+
+// spinners that require unicode support
+if (isUnicodeSupported()) {
+    spinners.push(
+        'arc',
+        'dots10',
+        'squareCorners',
+        'toggle'
+    );
+}
 
 export function UpdateSuspense() {
     const randomSpinner = randomArrEl(spinners);
