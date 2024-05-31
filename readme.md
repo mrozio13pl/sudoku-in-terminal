@@ -9,7 +9,7 @@
 # in terminal c:
 ```
 
-# sudoku-in-terminal ![npm](https://img.shields.io/npm/v/sudoku-in-terminal?color=%2300aa00&label=%20)
+# sudoku-in-terminal [![npm](https://img.shields.io/npm/v/sudoku-in-terminal?color=%2300aa00&label=%20)](https://www.npmjs.com/package/sudoku-in-terminal)
 
 Sudoku game working entirely within your terminal window. 🧩\
 Built with Typescript on top of [Ink](https://github.com/vadimdemedes/ink) and [React](https://github.com/facebook/react).
