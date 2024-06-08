@@ -63,7 +63,7 @@ export function ReplayList() {
             <Box gap={2}>
                 <Text color={COLORS.primary}>Pages: <Text color={COLORS.secondary}>{currentPage}/{pages}</Text></Text>
                 <Text color={COLORS.primary}>Replays: <Text color={COLORS.secondary}>{replays.length}</Text></Text>
-            </Box>{/* , Items on page: {replays.filter((_, replayIndex) => isInRange(replayIndex, (currentPage - 1) * maxHeight, (pages - 1) * (maxHeight - currentPage))).length} {maxHeight * currentPage} */}
+            </Box>
         </Box>
     );
 }
