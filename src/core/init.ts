@@ -4,6 +4,7 @@ import { useSettings } from '~/hooks/use-settings';
 import { useSudoku } from '~/hooks/use-sudoku';
 import { useReplays } from '~/hooks/use-replays';
 import { useUpdate } from '~/hooks/use-update';
+import { useTheme } from '~/hooks/use-theme';
 import { checkForUpdates } from '~/helpers/check-for-updates';
 import { exit } from '~/helpers/exit';
 import { Cache } from '~/core/cache';
@@ -11,6 +12,7 @@ import { findErrors } from '~/core/sudoku';
 import { prompt } from '~/components/prompt/prompt';
 import { cachePath } from '~/helpers/cache-path';
 import { isDevelopment } from '~/helpers/env';
+import { themes } from '~/themes';
 import type { Difficulty, Option, Setting } from '~/types';
 
 const options: Option[] = [
@@ -38,6 +40,7 @@ export function init() {
     const { setSettings } = useSettings.getState();
     const { setReplays } = useReplays.getState();
     const { setIsUpdateCheckingEnabled } = useUpdate.getState();
+    const { setTheme } = useTheme.getState();
 
     setOptions(options);
     setOnSubmit(async value => {
@@ -112,6 +115,17 @@ export function init() {
             value: true,
             onChange(value) {
                 setShowHints(value);
+            },
+        },
+        {
+            type: 'list',
+            name: 'Theme',
+            description: 'Choose your favorite theme.',
+            list: themes.map(({ name }) => name),
+            value: 0,
+            valueColors: themes.map(({ nameColor }) => nameColor),
+            onChange(value) {
+                setTheme(value);
             },
         },
         {

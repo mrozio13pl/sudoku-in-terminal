@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import BigText from 'ink-big-text';
-import { COLORS } from '~/constants';
+import { useTheme } from '~/hooks/use-theme';
 import { setTerminalTitle } from '~/helpers/set-terminal-title';
 
 const TITLE = 'Sudoku';
@@ -9,6 +9,7 @@ const TYPING_SPEED = 100;
 export function Logo() {
     const [title, setTitle] = useState(TITLE[0]);
     const [isCompleted, setIsCompleted] = useState(false);
+    const { theme } = useTheme();
 
     useEffect(() => {
         if (isCompleted) return;
@@ -30,6 +31,6 @@ export function Logo() {
     });
 
     return (
-        <BigText text={title} font='simple3d' colors={[COLORS.primary, COLORS.secondary]} />
+        <BigText text={title} font='simple3d' colors={[theme.primary, theme.secondary]} />
     );
 }

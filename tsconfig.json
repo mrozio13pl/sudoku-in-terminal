@@ -20,6 +20,8 @@
             "~/handlers/*": ["./handlers/*"],
             "~/core/*": ["./core/*"],
             "~/components/*": ["./components/*"],
+            "~/themes": ["./themes/index.js"],
+            "~/themes/*": ["./themes/*"],
             "~/index": ["./index.js"],
             "~/constants": ["./constants.js"],
             "~/app": ["./app.js"],

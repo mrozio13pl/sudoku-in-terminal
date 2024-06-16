@@ -1,11 +1,13 @@
 import React from 'react';
 import { Box, Text } from 'ink';
 import { usePrompt } from '~/hooks/use-prompt';
+import { useTheme } from '~/hooks/use-theme';
 import stripAnsi from 'strip-ansi';
 import terminalSize from 'terminal-size';
 
 export function Prompter() {
     const { question } = usePrompt();
+    const { theme } = useTheme();
 
     if (!question) return <></>;
 
@@ -24,9 +26,9 @@ export function Prompter() {
             width={'100%'}
             height={'100%'}
         >
-            <Box borderStyle='doubleSingle' flexDirection='column'>
-                <Text color='yellow'> {question} </Text>
-                <Text> {YN}{' '.repeat(fill)}</Text>
+            <Box borderStyle='doubleSingle' borderColor={theme.prompt.border} flexDirection='column'>
+                <Text color={theme.prompt.question}> {question} </Text>
+                <Text color={theme.prompt.value}> {YN}{' '.repeat(fill)}</Text>
             </Box>
         </Box>
     );

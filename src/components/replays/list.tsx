@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Box, Text, useStdout } from 'ink';
 import terminalSize from 'terminal-size';
-import { COLORS } from '~/constants';
+import { useTheme } from '~/hooks/use-theme';
 import { unicodeFallback } from '~/helpers/unicode-fallback';
 import { useReplays } from '~/hooks/use-replays';
 import { isInRange } from '~/utils';
@@ -10,6 +10,7 @@ const MAX_WIDTH = 40;
 
 export function ReplayList() {
     const { currentReplayIndex, currentPage, replays, pages, pageSize, setCurrentPage, setPages, setPageSize } = useReplays();
+    const { theme } = useTheme();
     const { stdout } = useStdout();
 
     useEffect(() => {
@@ -43,7 +44,7 @@ export function ReplayList() {
                 if (!isVisible) return <React.Fragment key={replayIndex} />;
 
                 const isSelected = replayIndex === currentReplayIndex;
-                const color = !isSelected ? COLORS.primary : COLORS.secondary;
+                const color = !isSelected ? theme.replays.primary : theme.replays.secondary;
 
                 return (
                     <Box key={replayIndex}>
@@ -61,8 +62,8 @@ export function ReplayList() {
             })}
 
             <Box gap={2}>
-                <Text color={COLORS.primary}>Pages: <Text color={COLORS.secondary}>{currentPage}/{pages}</Text></Text>
-                <Text color={COLORS.primary}>Replays: <Text color={COLORS.secondary}>{replays.length}</Text></Text>
+                <Text color={theme.replays.primary}>Pages: <Text color={theme.replays.secondary}>{currentPage}/{pages}</Text></Text>
+                <Text color={theme.replays.primary}>Replays: <Text color={theme.replays.secondary}>{replays.length}</Text></Text>
             </Box>
         </Box>
     );

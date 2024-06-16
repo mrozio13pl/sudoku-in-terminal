@@ -3,14 +3,15 @@ import { Box, Text } from 'ink';
 import { useReplays } from '~/hooks/use-replays';
 import { ReplayPreview } from './preview';
 import { useSudoku } from '~/hooks/use-sudoku';
+import { useTheme } from '~/hooks/use-theme';
 import { Board } from '../game/board';
 import { handleAction } from '~/handlers/action';
 import { ReplayList } from './list';
-import { COLORS } from '~/constants';
 
 export function Replays() {
     const { currentReplayIndex, replays } = useReplays();
     const { setBoard, setPos } = useSudoku();
+    const { theme } = useTheme();
     const [actionIndex, setActionIndex] = useState(0);
 
     useEffect(() => {
@@ -55,8 +56,8 @@ export function Replays() {
                 <ReplayList />
 
                 <Box gap={1}>
-                    <Text color={COLORS.primary}>
-                        <Text color={COLORS.secondary}>DEL</Text> - Delete replay.
+                    <Text color={theme.replays.primary}>
+                        <Text color={theme.replays.secondary}>DEL</Text> - Delete replay.
                     </Text>
                 </Box>
             </Box>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Text } from 'ink';
 import Spinner from 'ink-spinner';
 import isUnicodeSupported from 'is-unicode-supported';
+import { useTheme } from '~/hooks/use-theme';
 import { randomArrEl } from '~/utils';
 import type { SpinnerName } from 'cli-spinners';
 
@@ -23,15 +24,17 @@ if (isUnicodeSupported()) {
 }
 
 export function UpdateSuspense() {
+    const { theme } = useTheme();
+
     const randomSpinner = randomArrEl(spinners);
     const Loader = () => (
-        <Text color='#1daeb3'>
+        <Text color={theme.updater.secondary}>
             <Spinner type={randomSpinner} />
         </Text>
     );
 
     return (
-        <Text color='#23d8de'>
+        <Text color={theme.updater.primary}>
             <Loader /> Checking for updates <Loader />
         </Text>
     );

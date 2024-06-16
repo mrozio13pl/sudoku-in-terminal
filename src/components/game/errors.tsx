@@ -3,10 +3,12 @@ import { Box, Text } from 'ink';
 import terminalSize from 'terminal-size';
 import { Alert } from '../ui/alert.js';
 import { useSudoku } from '~/hooks/use-sudoku';
+import { useTheme } from '~/hooks/use-theme';
 import { MINIMUM_TERMINAL_SIZE, State } from '~/constants';
 
 export function Errors() {
     const { state, errors: { messages } } = useSudoku();
+    const { theme } = useTheme();
 
     return (
         <Box flexDirection='column'>
@@ -19,7 +21,7 @@ export function Errors() {
                     return <React.Fragment key={messageIndex}></React.Fragment>;
                 }
 
-                return <Alert color={'red'} label='MISTAKE' key={messageIndex}>{message}</Alert>;
+                return <Alert color={theme.error} label='MISTAKE' key={messageIndex}>{message}</Alert>;
             })}
         </Box>
     );

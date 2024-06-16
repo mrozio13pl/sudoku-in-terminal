@@ -2,6 +2,7 @@
 import React from 'react';
 import { Box, Text } from 'ink';
 import { useSudoku } from '~/hooks/use-sudoku';
+import { useTheme } from '~/hooks/use-theme';
 import { Empty } from './empty.js';
 import { State } from '~/constants';
 import type { Board, Color } from '~/types';
@@ -12,45 +13,46 @@ const createLine = (left: string, middle: string, right: string) => {
         line += '───────';
         line += (i < 2) ? middle : right;
     }
-    return () => <Text children={line} />;
+    return line;
 };
 
-const TopLine = createLine('┌', '┬', '┐');
-const MiddleLine = createLine('├', '┼', '┤');
-const BottomLine = createLine('└', '┴', '┘');
+const topLine = createLine('┌', '┬', '┐');
+const middleLine = createLine('├', '┼', '┤');
+const bottomLine = createLine('└', '┴', '┘');
 
 export function Board() {
     const { board, pos, showHints, errors: { positions: errorPositions }, state } = useSudoku();
+    const { theme } = useTheme();
 
     if (!board) return <Text>No board.</Text>;
 
     return (
         <Box flexDirection='column'>
-            <TopLine />
+            <Text color={theme.board.border}>{topLine}</Text>
 
             {board.map((row, rowIndex) => {
                 return (
                     <React.Fragment key={rowIndex}>
                         <Text>
-                            {'│'} {row.map((cell, colIndex) => {
+                            <Text color={theme.board.border}>│</Text> {row.map((cell, colIndex) => {
                                 const isSelected = pos[0] === rowIndex && pos[1] === colIndex;
                                 const color: Color = isSelected && cell.marked
-                                    ? 'yellowBright'
+                                    ? theme.board.marked
                                     : (
                                         (state !== State.SOLVED && state !== State.BOT_SOLVED) && showHints && errorPositions.findIndex(pos => pos[0] === rowIndex && pos[1] === colIndex) !== -1
-                                            ? 'red' :  cell.permanent
-                                                ? 'gray' : state === State.SOLVED || state === State.BOT_SOLVED
-                                                    ? 'greenBright' : (
+                                            ? theme.board.invalid :  cell.permanent
+                                                ? theme.board.permanent : state === State.SOLVED || state === State.BOT_SOLVED
+                                                    ? theme.board.solved : (
                                                         isSelected
                                                             ? 'black'
-                                                            : 'white'
+                                                            : theme.board.value
                                                     )
                                     );
                                 const backgroundColor: Color = isSelected
-                                    ? 'whiteBright'
+                                    ? theme.board.selected
                                     : (
                                         cell.marked
-                                            ? 'yellowBright'
+                                            ? theme.board.marked
                                             : ''
                                     );
 
@@ -64,15 +66,15 @@ export function Board() {
                                             {cell.value || <Empty />}
                                         </Text>
 
-                                        {(colIndex + 1) % 3 === 0 ? ' │ ' : ' '}
+                                        {(colIndex + 1) % 3 === 0 ? <Text color={theme.board.border}> | </Text> : ' '}
                                     </React.Fragment>
                                 );
                             })}
                         </Text>
 
-                        {(rowIndex + 1) % 3 === 0 && rowIndex !== board.length - 1 && <MiddleLine />}
+                        {(rowIndex + 1) % 3 === 0 && rowIndex !== board.length - 1 && <Text color={theme.board.border}>{middleLine}</Text>}
 
-                        {rowIndex === board.length - 1 && <BottomLine />}
+                        {rowIndex === board.length - 1 && <Text color={theme.board.border}>{bottomLine}</Text>}
                     </React.Fragment>
                 );
             })}

@@ -6,10 +6,12 @@ import isUnicodeSupported from 'is-unicode-supported';
 import { Alert } from '../ui/alert.js';
 import { useSudoku } from '~/hooks/use-sudoku';
 import { unicodeFallback } from '~/helpers/unicode-fallback';
-import { COLORS, INACTIVITY_TIMEOUT, State } from '~/constants';
+import { INACTIVITY_TIMEOUT, State } from '~/constants';
+import { useTheme } from '~/hooks/use-theme.js';
 
 export function Messages() {
     const { board, pos, state, isInactive, setIsInactive } = useSudoku();
+    const { theme } = useTheme();
     const [inactivityTimeout, setInactivityTimeout] = useState<NodeJS.Timeout>();
 
     useEffect(() => {
@@ -55,7 +57,7 @@ export function Messages() {
             }
             {
                 !supportsColor.stdout &&
-                <Alert label='WARN' color={COLORS.warning} >
+                <Alert label='WARN' color={theme.warn} >
                     Colors are not supported in your terminal.
                 </Alert>
             }
