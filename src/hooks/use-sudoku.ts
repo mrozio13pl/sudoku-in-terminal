@@ -74,7 +74,7 @@ export const useSudoku = create<SudokuState>(set => ({
             return { finalTime, state, prevState };
         });
 
-        if (state === State.SOLVED || state === State.BOT_SOLVED) {
+        if (state === State.SOLVED) {
             saveGame();
         }
     },
