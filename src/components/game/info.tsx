@@ -49,7 +49,7 @@ export function Info() {
             <Text color={theme.primary}>Numbers colored in <Text color='gray'>gray</Text> are immutable.<Newline /></Text>
             <Text color={theme.primary}>
                 {
-                    finalTime
+                    finalTime && [State.SOLVED, State.BOT_SOLVED].includes(state)
                         ? <>Final time: {prettyTime(finalTime)}</>
                         : <>Time: <Counter bold={true} color={theme.secondary} /></>
                 }
