@@ -183,7 +183,9 @@ export async function handleInput(input: string, key: Key) {
                         setActions([]);
                         setBoard(board!.map(
                             row => row.map(
-                                col => !col.permanent ? { ...col, value: false } : col
+                                col => ({ ...(
+                                    !col.permanent ? { ...col, value: false } : col
+                                ), marked: false })
                             )
                         ));
                         setErrors({ messages: [], positions: [] });
