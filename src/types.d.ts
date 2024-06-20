@@ -78,7 +78,7 @@ export type Theme = {
         permanent: Color;
         /** @default 'yellow' */
         marked: Color;
-        /** @default board.value */
+        /** @default 'white' */
         selected: Color;
         /** @default error */
         invalid: Color;
