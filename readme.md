@@ -1,4 +1,4 @@
-```sh
+```md
                    __              __  __
   ____   __  __   /\ \     ___    /\ \/  \    __  __  
  / ,__\ /\ \/\ \  \_\ \   / __`\  \ \    <   /\ \/\ \ 
@@ -23,9 +23,10 @@ Built with Typescript on top of [Ink](https://github.com/vadimdemedes/ink) and [
 * Automatically detects mistakes.
 * 4 levels of difficulty.
 * Customizable settings.
-* Stores settings, unfinished games in a file.
+* Stores settings, unfinished games in a cache file.
 * Many helpful keybindings.
 * Game Replays.
+* Custom themes.
 * Supports terminals without unicode support.
 * Interactive and responsive.
 
@@ -65,6 +66,10 @@ sudoku
 - [ ] More options for creating sudoku game.
 - [ ] Customizable keystrokes.
 - [ ] Update cache file before exiting.
+
+## ❤ Support
+
+Consider starring [my repo](https://github.com/mrozio13pl/sudoku-in-terminal) if you like this project. 🌟
 
 ## Versioning
 

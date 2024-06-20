@@ -3,8 +3,10 @@ import json from '@rollup/plugin-json';
 import typescript from 'rollup-plugin-typescript2';
 import esbuild from 'rollup-plugin-esbuild';
 import { typescriptPaths } from 'rollup-plugin-typescript-paths';
+import replace from '@rollup/plugin-replace';
 import size from 'rollup-plugin-size';
 import rimraf from '@zkochan/rimraf';
+import { isDevelopment } from 'std-env';
 
 await rimraf('dist/*');
 
@@ -16,9 +18,8 @@ const plugins = [
     esbuild({
         target: 'node20',
         jsx: 'transform',
-        minifySyntax: true,
-        minifyIdentifiers: true,
-        minifyWhitespace: false,
+        minifySyntax: !isDevelopment,
+        minifyIdentifiers: !isDevelopment,
         loaders: {
             '.js': 'jsx',
             '.ts': 'tsx',
@@ -26,6 +27,15 @@ const plugins = [
     }),
     size()
 ];
+
+if (isDevelopment) {
+    plugins.push(
+        replace({
+            'process.env.NODE_ENV': '\'development\'',
+            preventAssignment: true
+        })
+    );
+}
 
 export default defineConfig([
     {

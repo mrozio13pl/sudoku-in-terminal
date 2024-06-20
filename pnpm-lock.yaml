@@ -72,6 +72,9 @@ importers:
       '@rollup/plugin-json':
         specifier: ^6.1.0
         version: 6.1.0(rollup@4.18.0)
+      '@rollup/plugin-replace':
+        specifier: ^5.0.7
+        version: 5.0.7(rollup@4.18.0)
       '@tsconfig/node18':
         specifier: ^18.2.4
         version: 18.2.4
@@ -79,7 +82,7 @@ importers:
         specifier: ^8.56.10
         version: 8.56.10
       '@types/node':
-        specifier: ^20.14.2
+        specifier: ^20
         version: 20.14.2
       '@types/react':
         specifier: ~18.3.3
@@ -141,6 +144,9 @@ importers:
       signal-exit-v4:
         specifier: npm:signal-exit@^4
         version: signal-exit@4.1.0
+      std-env:
+        specifier: ^3.7.0
+        version: 3.7.0
       tree-kill:
         specifier: ^1.2.2
         version: 1.2.2
@@ -1307,6 +1313,15 @@ packages:
 
   '@rollup/plugin-json@6.1.0':
     resolution: {integrity: sha512-EGI2te5ENk1coGeADSIwZ7G2Q8CJS2sF120T7jLw4xFw9n7wIOXHo+kIYRAoVpJAN+kmqZSoO3Fp4JtoNF4ReA==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      rollup: ^1.20.0||^2.0.0||^3.0.0||^4.0.0
+    peerDependenciesMeta:
+      rollup:
+        optional: true
+
+  '@rollup/plugin-replace@5.0.7':
+    resolution: {integrity: sha512-PqxSfuorkHz/SPpyngLyg5GCEkOcee9M1bkxiVDr41Pd61mqP1PLOoDPbpl44SB2mQGKwV/In74gqQmGITOhEQ==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       rollup: ^1.20.0||^2.0.0||^3.0.0||^4.0.0
@@ -5671,6 +5686,13 @@ snapshots:
   '@rollup/plugin-json@6.1.0(rollup@4.18.0)':
     dependencies:
       '@rollup/pluginutils': 5.1.0(rollup@4.18.0)
+    optionalDependencies:
+      rollup: 4.18.0
+
+  '@rollup/plugin-replace@5.0.7(rollup@4.18.0)':
+    dependencies:
+      '@rollup/pluginutils': 5.1.0(rollup@4.18.0)
+      magic-string: 0.30.10
     optionalDependencies:
       rollup: 4.18.0
 

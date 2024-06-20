@@ -84,7 +84,7 @@ export function init() {
                 let shouldOpenReplays = true;
 
                 if (board) {
-                    shouldOpenReplays = await prompt('You have an on-going game. By opening replays your progress will be lost. Are you sure you want to do that?');
+                    shouldOpenReplays = await prompt('Opening replays will lose your current game progress. Continue?');
                 }
 
                 if (shouldOpenReplays) setState(State.REPLAYS);

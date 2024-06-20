@@ -103,7 +103,7 @@ export async function handleInput(input: string, key: Key) {
                     break;
                 }
                 case key.delete: {
-                    const shouldDelete = await prompt('Are you sure you want to delete that replay?');
+                    const shouldDelete = await prompt('Are you sure you want to delete this replay?');
 
                     if (shouldDelete) {
                         setReplays(replays.filter((_, index) => index !== currentReplayIndex));
@@ -197,7 +197,7 @@ export async function handleInput(input: string, key: Key) {
                 // N
                 // Create a new puzzle.
                 case input === 'n': {
-                    const shouldAbort = await prompt('Are you sure you want to abort this puzzle?');
+                    const shouldAbort = await prompt('Abort this puzzle?');
 
                     if (shouldAbort) {
                         setSudoku(generateSudoku());
@@ -210,7 +210,7 @@ export async function handleInput(input: string, key: Key) {
                 // S
                 // Solve the current puzzle.
                 case input === 's': {
-                    const shouldSolve = await prompt('Are you sure you want this puzzle to be solved?');
+                    const shouldSolve = await prompt('Solve this puzzle?');
 
                     if (shouldSolve) {
                         setBoard(solution!.map((row, rowIndex) => {
