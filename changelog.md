@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.1.1](https://github.com/mrozio13pl/sudoku-in-terminal/compare/v1.1.0...v1.1.1) (2024-06-20)
+
+
+### 🐞 Bug Fixes
+
+* clear marked cells on clear ([b94f14f](https://github.com/mrozio13pl/sudoku-in-terminal/commit/b94f14fd718c25b25d71f9a328b1e6eec6e14b5d))
+* default theme's selected color ([ceb9d00](https://github.com/mrozio13pl/sudoku-in-terminal/commit/ceb9d002aa62132d1fbcf03f8585ad4f376f66fb))
+* don't save automatically solved puzzles to replays ([368a146](https://github.com/mrozio13pl/sudoku-in-terminal/commit/368a1465b17e17b8ebbaacf0ea6e9afdd5143890))
+* hide final time while playing ([6c8d868](https://github.com/mrozio13pl/sudoku-in-terminal/commit/6c8d868647dd325406895ce221cf56dd5b6a322a))
+
 ## [1.1.0](https://github.com/mrozio13pl/sudoku-in-terminal/compare/v1.0.0...v1.1.0) (2024-06-16)
 
 
