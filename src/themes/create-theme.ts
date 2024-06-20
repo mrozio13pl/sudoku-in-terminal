@@ -13,7 +13,7 @@ export function createTheme(theme: Theme) {
         empty: 'white',
         permanent: 'gray',
         marked: 'yellow',
-        selected: 'black',
+        selected: 'white',
         invalid: error,
         solved: 'greenBright',
         ...theme.board
