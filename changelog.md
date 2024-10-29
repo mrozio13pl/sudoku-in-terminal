@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/mrozio13pl/sudoku-in-terminal/compare/v1.1.1...v1.1.2) (2024-10-29)
+
+
+### 🐞 Bug Fixes
+
+* invalid theme from cache ([de1fa0f](https://github.com/mrozio13pl/sudoku-in-terminal/commit/de1fa0fa73a1071d850744807b1de21cd09761d6))
+
 ## [1.1.1](https://github.com/mrozio13pl/sudoku-in-terminal/compare/v1.1.0...v1.1.1) (2024-06-20)
 
 
