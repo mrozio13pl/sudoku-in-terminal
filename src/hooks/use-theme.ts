@@ -12,7 +12,7 @@ interface ThemeState {
 export const useTheme = create<ThemeState>(set => ({
     theme: hacker,
     setTheme(themeName) {
-        const theme = themes.find(({ name }) => name === themeName);
+        const theme = themes.find(({ name }) => name === themeName) || hacker;
         set({ theme });
     },
 }));
