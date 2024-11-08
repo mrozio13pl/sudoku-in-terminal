@@ -24,14 +24,14 @@ if (isUnicodeSupported()) {
 }
 
 export function UpdateSuspense() {
-    const { theme } = useTheme();
+    const { theme, animationsEnabled } = useTheme();
 
     const randomSpinner = randomArrEl(spinners);
-    const Loader = () => (
+    const Loader = () => animationsEnabled ? (
         <Text color={theme.updater.secondary}>
             <Spinner type={randomSpinner} />
         </Text>
-    );
+    ) : <Text>~</Text>;
 
     return (
         <Text color={theme.updater.primary}>
