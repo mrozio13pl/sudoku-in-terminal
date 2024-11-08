@@ -21,6 +21,7 @@ export async function handleInput(input: string, key: Key) {
     const UP = input.toUpperCase() === 'K' || key.upArrow;
     const LEFT = input.toUpperCase() === 'H' || key.leftArrow;
     const RIGHT = input.toUpperCase() === 'L' || key.rightArrow;
+    const ENTER = key.return || input === 'o';
 
     setIsInactive(false);
 
@@ -60,7 +61,7 @@ export async function handleInput(input: string, key: Key) {
                     if (currentOptionIndex < options.length - 1) setCurrentOptionIndex(currentOptionIndex + 1);
                     break;
                 }
-                case key.return: {
+                case ENTER: {
                     onSubmit(options[currentOptionIndex].value);
                     break;
                 }
@@ -282,7 +283,7 @@ export async function handleInput(input: string, key: Key) {
                     }
                     break;
                 }
-                case key.return: {
+                case ENTER: {
                     if (currentSetting.type === 'boolean') setValue(!currentSetting.value);
                 }
             }
@@ -292,7 +293,7 @@ export async function handleInput(input: string, key: Key) {
         }
         case State.SOLVED:
         case State.BOT_SOLVED: {
-            if (key.return) {
+            if (ENTER) {
                 setSudoku(generateSudoku());
                 setStartTime(Date.now());
                 setState(State.PLAYING);
