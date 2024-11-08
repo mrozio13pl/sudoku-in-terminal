@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.0](https://github.com/mrozio13pl/sudoku-in-terminal/compare/v1.1.2...v1.2.0) (2024-11-08)
+
+
+### 🌟 New Features
+
+* animation toggle setting ([0c7b0b0](https://github.com/mrozio13pl/sudoku-in-terminal/commit/0c7b0b0828629150c9f299d5b14bb775b2c85a8f))
+* make `o` the equivalent for `Enter` ([2fb370d](https://github.com/mrozio13pl/sudoku-in-terminal/commit/2fb370ddddb6d3ce1a8d32fce4318b2b1954a40d))
+
 ## [1.1.2](https://github.com/mrozio13pl/sudoku-in-terminal/compare/v1.1.1...v1.1.2) (2024-10-29)
 
 
