@@ -40,7 +40,7 @@ export function init() {
     const { setSettings } = useSettings.getState();
     const { setReplays } = useReplays.getState();
     const { setIsUpdateCheckingEnabled } = useUpdate.getState();
-    const { setTheme } = useTheme.getState();
+    const { setTheme, setAnimationsEnabled } = useTheme.getState();
 
     setOptions(options);
     setOnSubmit(async value => {
@@ -130,6 +130,15 @@ export function init() {
         },
         {
             type: 'boolean',
+            name: 'Animations',
+            description: 'Enable or disable animations.',
+            value: true,
+            onChange(value) {
+                setAnimationsEnabled(value);
+            },
+        },
+        {
+            type: 'boolean',
             name: 'Enable Cache',
             description: `Store settings, stats, unfinished game locally. ${isDevelopment ? 'Path: ' + cachePath('sudoku') : ''}`,
             value: true,
@@ -147,7 +156,7 @@ export function init() {
 
                 if (value) checkForUpdates();
             },
-        }
+        },
     ];
 
     if (cachedSettings) {

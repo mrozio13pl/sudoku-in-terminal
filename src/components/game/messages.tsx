@@ -11,7 +11,7 @@ import { useTheme } from '~/hooks/use-theme.js';
 
 export function Messages() {
     const { board, pos, state, isInactive, setIsInactive } = useSudoku();
-    const { theme } = useTheme();
+    const { theme, animationsEnabled } = useTheme();
     const [inactivityTimeout, setInactivityTimeout] = useState<NodeJS.Timeout>();
 
     useEffect(() => {
@@ -48,11 +48,13 @@ export function Messages() {
                 // sort of an easter egg
                 isInactive &&
                 <Alert label='Hello...' color='magentaBright'>
-                    Are you still here? <Spinner type={
-                        isUnicodeSupported()
-                            ? 'earth'
-                            : 'betaWave'}
-                    />
+                    Are you still here? {
+                        animationsEnabled && <Spinner type={
+                            isUnicodeSupported()
+                                ? 'earth'
+                                : 'betaWave'}
+                        />
+                    }
                 </Alert>
             }
             {
