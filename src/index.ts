@@ -2,6 +2,7 @@ import hasFlag from 'has-flag';
 import { render } from 'ink';
 import { App } from '~/app';
 import { isDevelopment } from '~/helpers/env';
+import { init } from '~/core/init';
 import { version } from '~/package.json' with { type: 'json' };
 
 if (hasFlag('--version') || hasFlag('-v')) {
@@ -14,6 +15,8 @@ if (hasFlag('--help') || hasFlag('-h')) {
     process.stdout.write('Check out: https://github.com/mrozio13pl/sudoku-in-terminal');
     process.exit(1);
 }
+
+init();
 
 const InkInstance = render(
     App(),
