@@ -66,7 +66,7 @@ export function Board() {
                                             {cell.value || <Empty />}
                                         </Text>
 
-                                        {(colIndex + 1) % 3 === 0 ? <Text color={theme.board.border}> | </Text> : ' '}
+                                        {(colIndex + 1) % 3 === 0 ? <Text color={theme.board.border}> │ </Text> : ' '}
                                     </React.Fragment>
                                 );
                             })}
