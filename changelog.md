@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.2.1](https://github.com/mrozio13pl/sudoku-in-terminal/compare/v1.2.0...v1.2.1) (2024-11-14)
+
+
+### 🐞 Bug Fixes
+
+* board borders ([de6f474](https://github.com/mrozio13pl/sudoku-in-terminal/commit/de6f474ee3d9f90f7efa2628d0567ab4a532079d))
+
+
+### 📦 Code Refactoring
+
+* remove `onetime` ([4a90d14](https://github.com/mrozio13pl/sudoku-in-terminal/commit/4a90d146a86c437004a43870e5178a5c63960775))
+
 ## [1.2.0](https://github.com/mrozio13pl/sudoku-in-terminal/compare/v1.1.2...v1.2.0) (2024-11-08)
 
 

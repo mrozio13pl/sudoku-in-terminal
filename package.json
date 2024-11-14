@@ -1,6 +1,6 @@
 {
   "name": "sudoku-in-terminal",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Sudoku game in terminal.",
   "type": "module",
   "main": "dist/index.js",
