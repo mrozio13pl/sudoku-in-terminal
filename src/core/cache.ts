@@ -22,6 +22,13 @@ interface CacheSchema {
 
 export class Cache {
     private static readonly path = cachePath('sudoku');
+
+    static {
+        if (!fs.existsSync(Cache.path)) {
+            fs.mkdirSync(Cache.path, { recursive: true });
+        }
+    }
+
     private static readonly file = path.join(this.path, `sudoku-v${getMajorVersion(version)}.json`);
     private static readonly writer = new Writer(this.file);
     public static enabled = true;
@@ -45,6 +52,7 @@ export class Cache {
         if (!this.enabled) return {};
 
         this._cache = { ...this._cache, ...cache };
+
         if (!fs.existsSync(this.path)) fs.mkdirSync(this.path, { recursive: true });
 
         try {
