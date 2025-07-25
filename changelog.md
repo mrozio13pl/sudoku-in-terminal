@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.2.2](https://github.com/mrozio13pl/sudoku-in-terminal/compare/v1.2.1...v1.2.2) (2025-07-25)
+
+
+### 🐞 Bug Fixes
+
+* crash on first load ([7bea041](https://github.com/mrozio13pl/sudoku-in-terminal/commit/7bea041573d44857f58f558204ff08cc9d5c5fbd))
+
+
+### 📦 Code Refactoring
+
+* upgrade to react 19 ([acdbf73](https://github.com/mrozio13pl/sudoku-in-terminal/commit/acdbf734cc70114195ea6503d40ed72bc76e2598))
+
 ## [1.2.1](https://github.com/mrozio13pl/sudoku-in-terminal/compare/v1.2.0...v1.2.1) (2024-11-14)
 
 
