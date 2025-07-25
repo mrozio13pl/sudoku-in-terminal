@@ -1,7 +1,7 @@
 import updateNotifier from 'tiny-update-notifier';
 import { isDevelopment } from '~/helpers/env';
 import { useUpdate } from '~/hooks/use-update';
-import { name, version } from '~/package.json' with { type: 'json '};
+import { name, version } from '~/package.json' assert { type: 'json '};
 import { setTimeout as sleep } from 'node:timers/promises';
 
 export async function checkForUpdates() {
