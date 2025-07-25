@@ -57,8 +57,6 @@ sudoku
 ## 🛫 Roadmap
 
 - [ ] Add tests.
-- [ ] Improve readability of the code.
-- [ ] Add more JSDocs.
 - [ ] Cache validator.
 - [ ] Allow arrow keys with __CTRL__ to skip occupied cells.
 - [ ] Improve replays.
